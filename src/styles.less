@@ -1,1 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../src/assets/less/colors';
+@import '../src/assets/less/sizes';
+
+@font-face {
+    font-family: Oswald;
+    src: url(assets/font/oswald-regular.ttf) format("truetype");
+}
+@font-face {
+    font-family: OswaldBold;
+    src: url(assets/font/oswald-bold.ttf) format("truetype");
+}
+@font-face {
+    font-family: OswaldLight;
+    src: url(assets/font/oswald-light.ttf) format("truetype");
+}
+
+// Custom styles
+body {
+    font-family: 'Oswald', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: @normal-font;
+    .accordion {
+        margin-bottom: -2px;
+        .card {
+            overflow: unset;
+            background-color: transparent;
+            background-clip: unset;
+            border: none;
+            border-radius: 0;
+            .card-header {
+                background-color: @white-bg;
+                border-top: 2px solid @main-text;
+                border-bottom: 2px solid @main-text;
+                margin-bottom: -2px;
+                button {
+                    color: @main-text;
+                    font-size: @large-font;
+                    &.collapsed {
+                        span {
+                            &.open-icon {
+                                svg {
+                                    transform: rotate(0deg);
+                                    transition: 300ms ease all;
+                                }
+                            }
+                        }
+                    }
+                    &.btn-link{
+                        text-decoration: none;
+                        &:hover {
+                            color: @main-text;
+                        }
+                    }
+                    span {
+                        &.question-id {
+                            text-transform: uppercase;
+                            font-family: 'OswaldBold', sans-serif;
+                            font-size: @large-font;
+                        }
+                        &.question-text {
+                            font-family: 'OswaldLight', sans-serif;
+                            font-size: @small-font;
+                            margin-left: @large-space;
+                            position: relative;
+                            top: -.35em;
+                        }
+                        &.open-icon {
+                            position: absolute;
+                            float: right;
+                            right:  @small-space;
+                            background-color: @close-button;
+                            width: @large-space;
+                            svg {
+                                width: @medium-font;
+                                height: auto;
+                                margin-top: -4px;
+                                transform: rotate(45deg);
+                                transition: 300ms ease all;
+                            }
+                        }
+                    }
+                }
+            }
+            .card-body {
+                div {
+                    &.answer-text {
+                        margin: 0 @medium-space;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+// Bootstrap buttons override
+.btn.focus, .btn:focus {
+    outline: none;
+    box-shadow: none;
+}
