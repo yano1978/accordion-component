@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AccordionComponent } from './accordion.component';
 
 describe('AccordionComponent', () => {
@@ -8,6 +8,7 @@ describe('AccordionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ], 
       declarations: [ AccordionComponent ]
     })
     .compileComponents();
