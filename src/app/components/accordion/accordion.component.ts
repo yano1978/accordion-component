@@ -44,7 +44,7 @@ export class AccordionComponent implements OnInit {
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
       panel.style.paddingTop = "20px";
-      panel.style.paddingBottom = "35px";
+      panel.style.paddingBottom = "55px";
       panel.style.transition = "300ms ease all"
     }
   }
