@@ -8,6 +8,10 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: @small-font;
+    // Details icon marker removal for Safari 
+    ::-webkit-details-marker {
+        display:none;
+    }
    // Bootstrap version 
     .accordion {
         margin-bottom: -2px;
@@ -23,6 +27,7 @@ body {
                 border-bottom: 2px solid @main-text;
                 margin-bottom: -2px;
                 cursor: pointer;
+                position: relative;
                 &:hover {
                     background-color: @card-header;
                     border-top: 2px solid transparent;
@@ -67,6 +72,7 @@ body {
                             margin-left: @large-space;
                             position: relative;
                             top: -.35em;
+                            max-width: 100%;
                         }
                         &.open-icon {
                             position: absolute;
@@ -88,8 +94,15 @@ body {
         }
     } 
 }
-
-// Bootstrap buttons override
+// Bootstrap media query & buttons override
+@media (max-width: 425px) {
+    body .accordion .card .card-header button span.question-text {
+        max-width: calc(100% - 135px);
+        position: absolute;
+        top: 30%;
+        text-align: left;
+    }
+}
 .btn.focus, .btn:focus {
     outline: none;
     box-shadow: none;

@@ -32,20 +32,22 @@ export class AccordionComponent implements OnInit {
     const element = event.target;
     element.classList.toggle("active");
     if (this.data[index].isActive) {
-      this.data[index].isActive = false;
+        this.data[index].isActive = false;
     } else {
-      this.data[index].isActive = true;
+        this.data[index].isActive = true;
     }
     const panel = element.nextElementSibling;
     if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-      panel.style.paddingTop = null;
-      panel.style.paddingBottom = null;
+        panel.style.maxHeight = null;
+        panel.style.paddingTop = null;
+        panel.style.paddingBottom = null;
+        panel.style.overflow = null;
     } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-      panel.style.paddingTop = "20px";
-      panel.style.paddingBottom = "55px";
-      panel.style.transition = "300ms ease all"
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        panel.style.paddingTop = "20px";
+        panel.style.paddingBottom = "55px";
+        panel.style.transition = "300ms ease all";
+        panel.style.overflow = "auto";
     }
   }
 }

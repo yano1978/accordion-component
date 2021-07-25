@@ -19,6 +19,7 @@
             margin: 0;
             padding: 0;
             pointer-events: none;
+            position: relative;
         }
     }
     @keyframes topToBottom {
@@ -40,6 +41,7 @@
         transition: 0.4s;
         border-top: 2px solid @main-text;
         border-bottom: 2px solid @main-text;
+        position: relative;
         span, li {
             display: inline-block;
             pointer-events: none;
@@ -54,11 +56,12 @@
                 margin-left: @large-space;
                 position: relative;
                 top: -.35em;
+                max-width: 100%;
             }
             &.open-icon {
                 position: absolute;
                 float: right;
-                right:  @medium-space;
+                right: 0;
                 background-color: @close-button;
                 width: @max-space;
                 height: @extralarge-space;
@@ -88,6 +91,9 @@
                 }
             }
         }
+        &.accordion_classic-html span.open-icon {
+            right: @medium-space;
+        }
     }
     .panel {
         padding: 0 @medium-font;
@@ -95,5 +101,23 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.2s ease-out;
+    }
+}
+
+// HTML5 & MTHL media query 
+@media (max-width: 425px) {
+    .accordion-wrapper .accordion {
+        li.question-text {
+            max-width: calc(100% - 100px);
+            position: absolute;
+            top: 15%;
+        }
+        &.accordion_classic-html {
+            span.question-text {
+                max-width: calc(100% - 135px);
+                position: absolute;
+                top: 30%;
+            }
+        }
     }
 }
