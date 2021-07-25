@@ -1,36 +1,99 @@
-// .accordion {
-//     background-color: #eee;
-//     color: #444;
-//     cursor: pointer;
-//     padding: 18px;
-//     width: 100%;
-//     border: none;
-//     text-align: left;
-//     outline: none;
-//     font-size: 15px;
-//     transition: 0.4s;
-// }
+/* Title component styles */
 
-// .active, .accordion:hover {
-//     background-color: #ccc;
-// }
+@import '../../../assets/less/sizes';
+@import '../../../assets/less/colors';
+@import '../../../assets/less/typography';
 
-// .accordion:after {
-//     content: '\002B';
-//     color: #777;
-//     font-weight: bold;
-//     float: right;
-//     margin-left: 5px;
-// }
-
-// .active:after {
-//     content: "\2212";
-// }
-
-// .panel {
-//     padding: 0 18px;
-//     background-color: white;
-//     max-height: 0;
-//     overflow: hidden;
-//     transition: max-height 0.2s ease-out;
-// }
+// HTML version 
+.accordion-wrapper {
+     /* HTML5 version */
+    details[open] summary ~ * {
+        animation: topToBottom .5s ease-in-out;
+    }
+    summary {
+        &::marker {
+            content: "";
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            pointer-events: none;
+        }
+    }
+    @keyframes topToBottom {
+        0%    {opacity: 0; transform: translateY(-10px)}
+        100%  {opacity: 1; transform: translateY(0)}
+    }
+    p {
+        padding: @medium-font @medium-font 0;
+    }
+    .accordion {
+        background-color: @white-bg;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: @normal-font;
+        transition: 0.4s;
+        border-top: 2px solid @main-text;
+        border-bottom: 2px solid @main-text;
+        span, li {
+            display: inline-block;
+            pointer-events: none;
+            &.question-id {
+                text-transform: uppercase;
+                font-family: 'OswaldBold', sans-serif;
+                font-size: @large-font;
+            }
+            &.question-text {
+                font-family: 'OswaldLight', sans-serif;
+                font-size: @extrasmall-font;
+                margin-left: @large-space;
+                position: relative;
+                top: -.35em;
+            }
+            &.open-icon {
+                position: absolute;
+                float: right;
+                right:  @medium-space;
+                background-color: @close-button;
+                width: @max-space;
+                height: @extralarge-space;
+                svg {
+                    width: @medium-font;
+                    height: auto;
+                    margin-top: 2px;
+                    margin-left: 8px;
+                    transform: rotate(0deg);
+                    transition: 300ms ease all;
+                }
+            }
+        }
+        &:hover{
+            background-color: @card-header;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
+        }
+        &.active {
+            background-color: @card-header;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
+            .open-icon {
+                svg {
+                    transform: rotate(45deg);
+                    transition: 300ms ease all;
+                }
+            }
+        }
+    }
+    .panel {
+        padding: 0 @medium-font;
+        background-color: @white-bg;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+}

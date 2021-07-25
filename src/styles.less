@@ -1,25 +1,14 @@
 @import '../src/assets/less/colors';
 @import '../src/assets/less/sizes';
+@import '../src/assets/less/typography';
 
-@font-face {
-    font-family: Oswald;
-    src: url(assets/font/oswald-regular.ttf) format("truetype");
-}
-@font-face {
-    font-family: OswaldBold;
-    src: url(assets/font/oswald-bold.ttf) format("truetype");
-}
-@font-face {
-    font-family: OswaldLight;
-    src: url(assets/font/oswald-light.ttf) format("truetype");
-}
-
-// Custom styles
+// Main custom styles
 body {
     font-family: 'Oswald', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: @normal-font;
+    font-size: @small-font;
+   // Bootstrap version 
     .accordion {
         margin-bottom: -2px;
         .card {
@@ -33,6 +22,19 @@ body {
                 border-top: 2px solid @main-text;
                 border-bottom: 2px solid @main-text;
                 margin-bottom: -2px;
+                cursor: pointer;
+                &:hover {
+                    background-color: @card-header;
+                    border-top: 2px solid transparent;
+                    border-bottom: 2px solid transparent;
+                    transition: 0.4s;
+                }
+                &.tab-active-bg {
+                    background-color: @card-header;
+                    border-top: 2px solid transparent;
+                    border-bottom: 2px solid transparent;
+                    transition: 0.4s;
+                }
                 button {
                     color: @main-text;
                     font-size: @large-font;
@@ -60,7 +62,7 @@ body {
                         }
                         &.question-text {
                             font-family: 'OswaldLight', sans-serif;
-                            font-size: @small-font;
+                            font-size: @extrasmall-font;
                             margin-left: @large-space;
                             position: relative;
                             top: -.35em;
@@ -90,9 +92,9 @@ body {
                 }
             }
         }
-    }
-    
+    } 
 }
+
 // Bootstrap buttons override
 .btn.focus, .btn:focus {
     outline: none;

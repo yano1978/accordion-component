@@ -1,8 +1,51 @@
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngFor="let item of data;let i = index;">
+<!-- HTML5 version -->
+<div class="accordion-wrapper" *ngFor="let item of data; let i = index">
+    <details>
+        <summary class="accordion" (click)="toggle($event)">
+            <ul>
+                <li class="question-id">q{{item.id}}</li>
+                <li class="question-text">{{item.name}}</li>
+                <li class="open-icon">
+                    <svg class="svg-rotate__icon" width="40px" height="40px" viewBox="0 0 357 357">
+                        <g id="add">
+                            <path d="M357,204H204v153h-51V204H0v-51h153V0h51v153h153V204z"/>
+                        </g>
+                    </svg>
+                </li>
+            </ul>
+        </summary>
+        <div class="answer-text">
+            <p>
+                {{ item.body }}
+            </p>
+        </div>
+    </details>
+</div>
+
+<!-- HTML version -->
+<!-- <div class="accordion-wrapper" *ngFor="let item of data; let i = index">
+  <button class="accordion" (click)="toggleAccordion($event, i)">
+    <span class="question-id">q{{item.id}}</span>
+    <span class="question-text">{{item.name}}</span>
+    <span class="open-icon"> 
+        <svg class="svg-rotate__icon" width="40px" height="40px" viewBox="0 0 357 357">
+            <g id="add">
+                <path d="M357,204H204v153h-51V204H0v-51h153V0h51v153h153V204z"/>
+            </g>
+        </svg>
+    </span>
+  </button>
+  <div class="panel" hide="!item.isActive">
+    <div class="answer-text">{{ item.body }}</div>
+  </div>
+</div> -->
+
+<!-- Bootstrap version -->
+<!-- <ngb-accordion (click)="toggle($event)" #acc="ngbAccordion" *ngFor="let item of data;let i = index;">
   <ngb-panel>
     <ng-template ngbPanelTitle>
         <span class="question-id">q{{item.id}}</span>
-        <span class="question-text">{{item.question}}</span>
+        <span class="question-text">{{item.name}}</span>
         <span class="open-icon"> 
             <svg class="svg-rotate__icon" width="40px" height="40px" viewBox="0 0 357 357">
                 <g id="add">
@@ -12,15 +55,7 @@
         </span>
     </ng-template>
     <ng-template ngbPanelContent>
-       <div class="answer-text">{{item.answer}}</div>
+       <div class="answer-text">{{item.body}}</div>
     </ng-template>
   </ngb-panel>
-</ngb-accordion>
-
-<!-- <div *ngFor="let item of data;let i = index;">
-  <button class="accordion" (click)="toggleAccordian($event, i)"> {{item.parentName}} </button>
-  <div class="panel" hide="!item.isActive">
-    <input type="text">
-    <p *ngFor="let child of item.childProperties"> {{child.propertyName}} </p>
-  </div>
-</div> -->
+</ngb-accordion> -->
