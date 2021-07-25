@@ -12,7 +12,7 @@ export class AccordionComponent implements OnInit {
   constructor(private http: HttpClient) {}
   
   getData(){
-    this.http.get('https://jsonplaceholder.typicode.com/comments').subscribe(data => {
+    this.http.get('assets/data/faqs.json').subscribe(data => {
       // console.log(data);
       this.data = data;
     });

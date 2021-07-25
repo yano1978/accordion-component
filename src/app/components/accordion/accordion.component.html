@@ -4,7 +4,7 @@
         <summary class="accordion" (click)="toggle($event)">
             <ul>
                 <li class="question-id">q{{item.id}}</li>
-                <li class="question-text">{{item.name}}</li>
+                <li class="question-text">{{item.question}}</li>
                 <li class="open-icon">
                     <svg class="svg-rotate__icon" width="40px" height="40px" viewBox="0 0 357 357">
                         <g id="add">
@@ -16,17 +16,37 @@
         </summary>
         <div class="answer-text">
             <p>
-                {{ item.body }}
+                {{ item.answer }}
             </p>
         </div>
     </details>
 </div>
 
+<!-- Bootstrap version -->
+<!-- <ngb-accordion (click)="toggle($event)" #acc="ngbAccordion" *ngFor="let item of data;let i = index;">
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+          <span class="question-id">q{{item.id}}</span>
+          <span class="question-text">{{item.question}}</span>
+          <span class="open-icon"> 
+              <svg class="svg-rotate__icon" width="40px" height="40px" viewBox="0 0 357 357">
+                  <g id="add">
+                      <path d="M357,204H204v153h-51V204H0v-51h153V0h51v153h153V204z"/>
+                  </g>
+              </svg>
+          </span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+         <div class="answer-text">{{item.answer}}</div>
+      </ng-template>
+    </ngb-panel>
+</ngb-accordion> -->
+
 <!-- HTML version -->
 <!-- <div class="accordion-wrapper" *ngFor="let item of data; let i = index">
   <button class="accordion" (click)="toggleAccordion($event, i)">
     <span class="question-id">q{{item.id}}</span>
-    <span class="question-text">{{item.name}}</span>
+    <span class="question-text">{{item.question}}</span>
     <span class="open-icon"> 
         <svg class="svg-rotate__icon" width="40px" height="40px" viewBox="0 0 357 357">
             <g id="add">
@@ -36,26 +56,6 @@
     </span>
   </button>
   <div class="panel" hide="!item.isActive">
-    <div class="answer-text">{{ item.body }}</div>
+    <div class="answer-text">{{ item.answer }}</div>
   </div>
 </div> -->
-
-<!-- Bootstrap version -->
-<!-- <ngb-accordion (click)="toggle($event)" #acc="ngbAccordion" *ngFor="let item of data;let i = index;">
-  <ngb-panel>
-    <ng-template ngbPanelTitle>
-        <span class="question-id">q{{item.id}}</span>
-        <span class="question-text">{{item.name}}</span>
-        <span class="open-icon"> 
-            <svg class="svg-rotate__icon" width="40px" height="40px" viewBox="0 0 357 357">
-                <g id="add">
-                    <path d="M357,204H204v153h-51V204H0v-51h153V0h51v153h153V204z"/>
-                </g>
-            </svg>
-        </span>
-    </ng-template>
-    <ng-template ngbPanelContent>
-       <div class="answer-text">{{item.body}}</div>
-    </ng-template>
-  </ngb-panel>
-</ngb-accordion> -->
